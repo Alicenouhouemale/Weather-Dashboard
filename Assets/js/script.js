@@ -69,3 +69,49 @@ function currentCondition(city) {
         });
     });
 }
+// function for future condition
+function futureCondition(lat, lon) {
+    var futureURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
+
+    $.ajax({
+        url: futureURL,
+        method: "GET"
+    }).then(function(futureResponse) {
+        console.log(futureResponse);
+        $("#fiveDay").empty();
+        
+        for (let i = 1; i < 6; i++) {
+            var cityInfo = {
+                date: futureResponse.daily[i].dt,
+                icon: futureResponse.daily[i].weather[0].icon,
+                temp: futureResponse.daily[i].temp.day,
+                humidity: futureResponse.daily[i].humidity
+            };
+
+            var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+            var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
+
+            // Function to display future date, weather contidion icon, temperature and humidity
+            var futureCard = $(`
+            <div class="pl-3">
+                <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;>
+                    <div class="card-body">
+                        <h5>${currDate}</h5>
+                        <p>${iconURL}</p>
+                        <p>Temp: ${cityInfo.temp} °F</p>
+                        <p>Humidity: ${cityInfo.humidity}\%</p>
+                    </div>
+                </div>
+            <div>
+        `);
+
+        $("#fiveDay").append(futureCard);
+    }
+}); 
+}
+
+// Current and future conditions for a specific city
+$(document).on("click", ".list-group-item", function() {
+    var listCity = $(this).text();
+    currentCondition(listCity);
+});
