@@ -3,7 +3,7 @@ h1 {
     font-size: 50px;
     font-weight: 400;
     letter-spacing: 3px;
-    color: #f8f8ff;
+    color: black;
 }
 
 #weatherContent {
@@ -28,4 +28,30 @@ li {
 
 #searchResults {
     height: 100vh;
+}
+
+#fiveDay .card {
+    border: 1px solid white;
+}
+
+#searchHistory li {
+    background-color: #97A6A4;
+    color: #f8f8ff;
+}
+
+p {
+    color: #D9B779;
+}
+
+h1, h3 {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h3 {
+    color: black;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #97A6A4;
 }
