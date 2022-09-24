@@ -17,5 +17,15 @@ h1 {
 #cityDetail,
 #uvIndexColor,
 li {
-    color: #504d53;
+    color: lightgrey;
+}
+
+#searchResults,
+#cityDetail,
+.card {
+    background-color: lightseagreen;
+}
+
+#searchResults {
+    height: 100vh;
 }
