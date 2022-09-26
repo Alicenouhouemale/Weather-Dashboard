@@ -1,12 +1,12 @@
 
-var apiKey = "d1e2d0763204896fd894698f5c6e27ee";
+var apiKey = "28d26cfa250dc29eff9b27c5bc0fdeae";
 var today = moment().format('L');
 var searchHistoryList = [];
 
 // Function for current condition
 
 function currentCondition(city) {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}";
 
     $.ajax({
         url: queryURL,
@@ -71,7 +71,7 @@ function currentCondition(city) {
 }
 // function for future condition
 function futureCondition(lat, lon) {
-    var futureURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
+    var futureURL = "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}";
 
     $.ajax({
         url: futureURL,
@@ -89,7 +89,7 @@ function futureCondition(lat, lon) {
             };
 
             var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
-            var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
+            var iconURL = <img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />;
 
             // Function to display future date, weather contidion icon, temperature and humidity
             var futureCard = $(`
@@ -114,4 +114,16 @@ function futureCondition(lat, lon) {
 $(document).on("click", ".list-group-item", function() {
     var listCity = $(this).text();
     currentCondition(listCity);
+});
+
+// Displays last city searched
+$(document).ready(function() {
+    var searchHistoryArr = JSON.parse(localStorage.getItem("city"));
+
+    if (searchHistoryArr !== null) {
+        var lastSearchedIndex = searchHistoryArr.length - 1;
+        var lastSearchedCity = searchHistoryArr[lastSearchedIndex];
+        currentCondition(lastSearchedCity);
+        console.log(`Last searched city: ${lastSearchedCity}`);
+    }
 });
