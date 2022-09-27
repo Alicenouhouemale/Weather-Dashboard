@@ -1,6 +1,6 @@
 
 var apiKey = "28d26cfa250dc29eff9b27c5bc0fdeae";
-var today = moment().format('L');
+var today = moment();
 var searchHistoryList = [];
 
 // Function for current condition
@@ -44,11 +44,9 @@ function currentCondition(city) {
             console.log(uviResponse);
 
             var uvIndex = uviResponse.value;
-            var uvIndexP = $(
-                <p>UV Index: 
-                    <span id="uvIndexColor" class="px-2 py-2 rounded">${uvIndex}</span>
-                </p>
-            );
+            var uvIndexP = $(`
+                <p>UV Index:<span id="uvIndexColor" class="px-2 py-2 rounded">${uvIndex}</span></p>
+            `);
 
             $("#cityDetail").append(uvIndexP);
 
@@ -88,8 +86,9 @@ function futureCondition(lat, lon) {
                 humidity: futureResponse.daily[i].humidity
             };
 
-            var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
-            var iconURL = <img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />;
+            var currentDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+            var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
+
 
             // Function to display future date, weather contidion icon, temperature and humidity
             var futureCard = $(`

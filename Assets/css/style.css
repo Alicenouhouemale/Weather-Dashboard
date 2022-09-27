@@ -6,12 +6,17 @@ h1 {
     color: black;
 }
 
-#weatherContent {
-    display: none;
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: yellowgreen;
 }
 
-.navbar {
-    height: 150px;
+p {
+    color: #D9B779;
+}
+
+#weatherContent {
+    display: none;
 }
 
 #cityDetail,
@@ -39,19 +44,15 @@ li {
     color: #f8f8ff;
 }
 
-p {
-    color: #D9B779;
+.navbar {
+    height: 150px;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h5 {
     font-family: 'Raleway', sans-serif;
 }
 
-h2, h3, h4, h5 {
+h2, h3, h5 {
     color: black;
 }
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: yellowgreen;
-}
