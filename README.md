@@ -42,7 +42,7 @@ Temperature
 Humidity
 When a city in the search history is clicked, the current and future conditions for that city is presented again
 
-When the weather dashboard is opened, the last searched city forecast is presented
+When the weather dashboard is opened, the last searched city forecast is presented.
 
 # Features
 
