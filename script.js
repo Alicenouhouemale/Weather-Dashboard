@@ -22,7 +22,7 @@ $("#history").on("click", function (event) {
 });
 
 refresh();
-
+// Function to refresh search history
 function refresh() {
   var local = JSON.parse(localStorage.getItem("search-history")) || [];
   if (local === null) {
@@ -36,10 +36,10 @@ function refresh() {
     }
   }
 }
-
 var searchHistory = JSON.parse(localStorage.getItem("search-history")) || [];
 var today = moment().format("M/D/YYYY");
 
+// Displays city name, date, weather condition (temperature, humidity and speed with their icon).
 function weather(input) {
   $("#weather").empty();
   var apikey = "c7990a8de2e17434740eaea2a1570d6d";
@@ -75,7 +75,7 @@ function weather(input) {
       forecast(lat, lon);
     });
 }
-
+// Function to display forecast
 function forecast(lat, lon) {
   $("#forecast").empty();
   var apikey = "c7990a8de2e17434740eaea2a1570d6d";
