@@ -8,19 +8,19 @@
 4. Features
 5. Screenshot
 
-# Description
+## Description
 
 This is a weather dashboard with form inputs that will run in the browser and feature dynamically updated HTML and CSS. It allows the user to search to view weather outlook for multiple cities so travelers can plan a trip accordingly.
 
 OpenWeather API is used to retrieve weather data for cities. And localStorage is used to store persistent data.
 
-# Installation
+## Installation
 
 Download or clone repository
 Open the main page (index.html) on your browser to view
 Use a text editor to view all coding, Visual Studio Coding is recommended.
 
-# Functionality
+## Functionality
 
 When searched for a city, the current and future conditions for that city will be presented and that city is added to the search history
 
@@ -44,7 +44,7 @@ When a city in the search history is clicked, the current and future conditions 
 
 When the weather dashboard is opened, the last searched city forecast is presented.
 
-# Features
+## Features
 
 HTML
 CSS
@@ -53,7 +53,7 @@ jQuery
 Moment.js
 Server-Side API - OpenWeather API
 
-# Screenshot
+## Screenshot
 
 Application URL: https://alicenouhouemale.github.io/Weather-Dashboard/
 
